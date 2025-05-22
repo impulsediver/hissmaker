@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { View, Text, Image, Pressable, Modal, StyleSheet } from "react-native";
-import { LanguageSelector } from "../components";
+import { BannerAdvertisement, LanguageSelector } from "../components";
 import { useLanguage } from "../languages";
 
 /** */
@@ -42,6 +42,8 @@ export function Home() {
           {/* <Image source={require('../assets/angry_cat.png')} style={styles.catImage} /> */}
         </Pressable>
       </View>
+
+      <BannerAdvertisement />
 
       <ConfirmModal
         modalVisible={modalVisible}
