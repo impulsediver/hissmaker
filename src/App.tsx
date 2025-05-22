@@ -1,5 +1,6 @@
 import React from "react";
 import { Text, useColorScheme, View } from "react-native";
+import { Home } from "./screens";
 
 /** */
 export function App(): React.JSX.Element {
@@ -16,9 +17,5 @@ export function App(): React.JSX.Element {
    */
   const safePadding = "5%";
 
-  return (
-    <View>
-      <Text>Hello World!</Text>
-    </View>
-  );
+  return <Home />;
 }

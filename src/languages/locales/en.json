@@ -1,0 +1,14 @@
+{
+  "LABEL": "English",
+  "select": "select language",
+  "greeting": "Hello",
+  "home": {
+    "greeting": "Hello",
+    "button": "",
+    "modal": {
+      "content": "it'll play f**k word to cat",
+      "confirm": "I understood",
+      "reject": "later"
+    }
+  }
+}

@@ -11,8 +11,11 @@
   },
   "dependencies": {
     "@react-native/gradle-plugin": "^0.79.2",
+    "i18next": "^25.2.0",
     "react": "19.0.0",
-    "react-native": "0.79.2"
+    "react-i18next": "^15.5.1",
+    "react-native": "0.79.2",
+    "react-native-localize": "^3.4.1"
   },
   "devDependencies": {
     "@babel/core": "^7.25.2",
