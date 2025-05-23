@@ -4,14 +4,15 @@ import {
   Text,
   Image,
   TouchableOpacity,
-  Pressable,
   Modal,
   StyleSheet,
 } from "react-native";
-import { BannerAdvertisement, LanguageSelector } from "../components";
-import { useLanguage } from "../languages";
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
+import { BannerAdvertisement, LanguageSelector } from "../components";
+import { useSound } from "../sounds";
+import { useLanguage } from "../languages";
 import { AppStackNavigationParams } from "../navigation";
+import SoundPlayer from "react-native-sound-player";
 
 /** */
 export function HomeScreen({
@@ -20,9 +21,20 @@ export function HomeScreen({
   const [modalVisible, setModalVisible] = useState(false);
   const [hasAccepted, setHasAccepted] = useState(false);
 
+  const { playRandomSound } = useSound();
+
   /** */
   function handlePress() {
-    setModalVisible(true);
+    // console.log("pressed");
+    // try {
+    //   SoundPlayer.playAsset(require("../sounds/assets/sample_audio_ding.mp3"));
+    // } catch (error) {
+    //   console.error(error);
+    // }
+
+    playRandomSound();
+
+    // setModalVisible(true);
 
     // if (!hasAccepted) {
     //   setShowModal(true);
@@ -55,9 +67,9 @@ export function HomeScreen({
       <LanguageSelector />
 
       <View style={styles.contentContainer}>
-        <Pressable style={styles.catButton} onPress={handlePress}>
+        <TouchableOpacity style={styles.catButton} onPress={handlePress}>
           {/* <Image source={require('../assets/angry_cat.png')} style={styles.catImage} /> */}
-        </Pressable>
+        </TouchableOpacity>
       </View>
 
       <TouchableOpacity
@@ -105,12 +117,18 @@ function ConfirmModal({
             {getLocalizedText("home.modal.content")}
           </Text>
           <View style={styles.modalButtons}>
-            <Pressable style={styles.modalButton} onPress={onPressConfirm}>
+            <TouchableOpacity
+              style={styles.modalButton}
+              onPress={onPressConfirm}
+            >
               <Text>이해했다냥</Text>
-            </Pressable>
-            <Pressable style={styles.modalButton} onPress={onPressCancel}>
+            </TouchableOpacity>
+            <TouchableOpacity
+              style={styles.modalButton}
+              onPress={onPressCancel}
+            >
               <Text>잠시 마음의 준비 좀..</Text>
-            </Pressable>
+            </TouchableOpacity>
           </View>
         </View>
       </View>
