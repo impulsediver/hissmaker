@@ -1,6 +1,6 @@
 import React from "react";
-import { Text, useColorScheme, View } from "react-native";
-import { Home } from "./screens";
+import { useColorScheme } from "react-native";
+import { AppStackNavigation } from "./navigation";
 
 /** */
 export function App(): React.JSX.Element {
@@ -17,5 +17,5 @@ export function App(): React.JSX.Element {
    */
   const safePadding = "5%";
 
-  return <Home />;
+  return <AppStackNavigation />;
 }

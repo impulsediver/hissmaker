@@ -1,10 +1,22 @@
 import React, { useState } from "react";
-import { View, Text, Image, Pressable, Modal, StyleSheet } from "react-native";
+import {
+  View,
+  Text,
+  Image,
+  TouchableOpacity,
+  Pressable,
+  Modal,
+  StyleSheet,
+} from "react-native";
 import { BannerAdvertisement, LanguageSelector } from "../components";
 import { useLanguage } from "../languages";
+import { NativeStackScreenProps } from "@react-navigation/native-stack";
+import { AppStackNavigationParams } from "../navigation";
 
 /** */
-export function Home() {
+export function HomeScreen({
+  navigation,
+}: NativeStackScreenProps<AppStackNavigationParams, "Home">) {
   const [modalVisible, setModalVisible] = useState(false);
   const [hasAccepted, setHasAccepted] = useState(false);
 
@@ -33,6 +45,11 @@ export function Home() {
     setModalVisible(false);
   }
 
+  /** */
+  function gotoRecordingScreen() {
+    navigation.navigate("Recording");
+  }
+
   return (
     <View style={styles.container}>
       <LanguageSelector />
@@ -42,6 +59,20 @@ export function Home() {
           {/* <Image source={require('../assets/angry_cat.png')} style={styles.catImage} /> */}
         </Pressable>
       </View>
+
+      <TouchableOpacity
+        onPress={gotoRecordingScreen}
+        style={{
+          alignSelf: "center",
+          backgroundColor: "#e6e6e6",
+          paddingVertical: 12,
+          paddingHorizontal: 18,
+          marginBottom: 24,
+          borderRadius: 100,
+        }}
+      >
+        <Text>Go to RecordingScreen</Text>
+      </TouchableOpacity>
 
       <BannerAdvertisement />
 
